@@ -1,0 +1,3 @@
+[submodule "mesto-project-plus"]
+	path = mesto-project-plus
+	url = https://github.com/yandex-praktikum/mesto-project-plus
