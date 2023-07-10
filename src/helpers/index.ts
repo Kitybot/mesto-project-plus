@@ -2,9 +2,8 @@ import { Response } from 'express';
 import mongoose from 'mongoose';
 import CodesHTTPStatus from '../types/codes';
 
-const handleErrors = (err: any, res: Response) => {
-  if (err instanceof mongoose.Error.CastError
-    || err instanceof mongoose.Error.ValidationError) {
+export const handleErrors = (err: any, res: Response) => {
+  if (err instanceof mongoose.Error.CastError || err instanceof mongoose.Error.ValidationError) {
     res.status(CodesHTTPStatus.BAD_REQUEST).json({
       message: `Переданы некорректные данные: ${err.message}`,
     });
@@ -20,5 +19,4 @@ const handleErrors = (err: any, res: Response) => {
     res.status(err.statusCode).json(err.message);
   }
 };
-
 export default handleErrors;

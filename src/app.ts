@@ -1,3 +1,4 @@
+require('dotenv').config();
 import express, {
   Request,
   Response,
@@ -47,11 +48,10 @@ app.use('/', router);
 
 app.use(errorLogger);
 app.use(errors());
-app.use((err: any, req: Request, res: Response, next: NextFunction) => {
+app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
   handleErrors(err, res);
   next();
 });
-
 app.listen(Number(PORT), HOST, () => {
   console.log(`Cервер работает на порту ${PORT}!!!`);
 });

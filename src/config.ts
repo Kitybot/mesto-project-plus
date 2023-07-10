@@ -1,5 +1,3 @@
-require('dotenv').config();
-
 const {
   JWT_SECRET = 'secret',
   PORT = '3000',
